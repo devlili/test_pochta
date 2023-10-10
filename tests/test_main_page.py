@@ -1,5 +1,3 @@
-import time
-
 from pages.main_page import MainPage
 
 LINK = "https://www.pochta.ru/"
@@ -25,4 +23,9 @@ def test_send_package(driver):
     main_page.open_url(LINK)
     main_page.menu_item()
     main_page.select_posylka_option()
-    time.sleep(3)
+    windows = driver.window_handles
+    if len(windows) > 1:
+        driver.switch_to.window(windows[-1])
+    assert (
+        "https://www.pochta.ru/parcels" in driver.current_url
+    ), "Нет перехода на страницу Отправить посылку"

@@ -1,5 +1,3 @@
-import time
-
 from pages.search_page import SearchResultsPage
 
 
@@ -13,11 +11,14 @@ def test_search_for_pochta_rus(driver):
 
 
 def test_get_search_results(driver):
-    """Переход по ссылке из результата поиска на pochta.ru."""
+    """Проверка перехода по ссылке из результата поиска на pochta.ru."""
     search_page = SearchResultsPage(driver)
     search_page.click_pochta_link()
     windows = driver.window_handles
     if len(windows) > 1:
         driver.switch_to.window(windows[0])
         driver.close()
-    time.sleep(4)
+        driver.switch_to.window(windows[-1])
+    assert (
+        "https://www.pochta.ru" in driver.current_url
+    ), "Нет перехода на страницу pochta.ru"

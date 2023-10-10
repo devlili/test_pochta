@@ -9,6 +9,9 @@ def test_open_login(driver):
     main_page = MainPage(driver)
     main_page.open_url(LINK)
     main_page.get_auth()
+    assert (
+        "https://passport.pochta.ru/" in driver.current_url
+    ), "Нет перехода на страницу авторизации"
 
 
 def test_click_login_button(driver):

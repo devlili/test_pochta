@@ -9,6 +9,13 @@ class SearchResultsLocators:
 
 class LoginPageLocators:
     LOGIN_BUTTON = (By.XPATH, "//span[text()='Войти']")
+    LOGIN_BUTTON_DISABLED = (
+        By.XPATH,
+        (
+            "//button[@class='Buttonstyles__ButtonWrapper-sc-o9c5ps-1"
+            " lgVEbG'][@disabled]"
+        ),
+    )
     EMAIL_PHONE_FIELD = (By.XPATH, "//input[@id='username']")
     PASSWORD_FIELD = (By.XPATH, "//input[@id='userpassword']")
     EMAIL_PHONE_ERROR_MESSAGE = (

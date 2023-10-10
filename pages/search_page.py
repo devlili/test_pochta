@@ -26,7 +26,7 @@ class SearchResultsPage(BasePage):
             results_count = match.group(1).replace(" ", ",")
             return f"Количество найденных результатов: {results_count}"
         else:
-            raise ValueError("Число не найдено")
+            return "Результатов нет"
 
     def click_pochta_link(self):
         """Открыть страницу pochta.ru из поисковика."""

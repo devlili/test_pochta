@@ -28,7 +28,7 @@ class MainPage(BasePage):
 
     def get_search_result(self):
         """Получить результаты поиска."""
-        self.find_element(MainPageLocators.SEARCH_RESULT).text
+        return self.find_element(MainPageLocators.SEARCH_RESULT).text
 
     def menu_item(self):
         """Переход в верхнее меню."""

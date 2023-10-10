@@ -6,14 +6,16 @@ class LoginPage(BasePage):
     """PageObject класс для страницы авторизации."""
 
     def click_login_button(self):
-        """Нажать на Войти."""
+        """Нажать на кнопку Войти."""
         login_button = self.find_element(LoginPageLocators.LOGIN_BUTTON)
         login_button.click()
 
     def is_login_button_disabled(self):
         """Проверка активности кнопки Войти."""
-        login_button = self.find_element(LoginPageLocators.LOGIN_BUTTON)
-        return not login_button.is_enabled()
+        login_button = self.find_element(
+            LoginPageLocators.LOGIN_BUTTON_DISABLED
+        )
+        return login_button is not None
 
     def is_email_phone_field_empty(self):
         """Проверка пустого поля 'Электронная почта или телефон'."""
